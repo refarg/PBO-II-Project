@@ -5,18 +5,15 @@
  */
 package tampilan;
 
-import javax.swing.JOptionPane;
-
 /**
  *
- * @author Refardo
+ * @author Akses
  */
-public class login extends javax.swing.JFrame {
-
+public class menupilih extends javax.swing.JFrame {
     /**
-     * Creates new form login
+     * Creates new form menupilih
      */
-    public login() {
+    public menupilih() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -31,50 +28,62 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        uname = new javax.swing.JTextField();
-        pass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        car = new javax.swing.JButton();
+        motor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Halaman Login");
+        setTitle("Pilih Jenis Kendaraan:");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        uname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 570, 60));
-        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 570, 60));
-
-        jButton1.setText("Login");
+        jButton1.setText("Log Out");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 250, 80));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 90, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/Login.png"))); // NOI18N
+        car.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/Mobil.png"))); // NOI18N
+        car.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carActionPerformed(evt);
+            }
+        });
+        getContentPane().add(car, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 260, 260));
+
+        motor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/Motor.png"))); // NOI18N
+        motor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 270, 260));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/menuawal.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (uname.getText().equals("")||pass.getText().equals("")) {
-                   JOptionPane.showMessageDialog(null, "Masukkan Nama atau Password dengan Benar!", "Informasi", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-new menupilih().setVisible(true);
+    private void carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carActionPerformed
+new checkmobil().setVisible(true);
 this.dispose();
-        }// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_carActionPerformed
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+    private void motorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorActionPerformed
+new checkmotor().setVisible(true);
+this.dispose();
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
+    }//GEN-LAST:event_motorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+new login().setVisible(true);
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,28 +102,28 @@ this.dispose();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menupilih.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menupilih.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menupilih.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menupilih.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new menupilih().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton car;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JTextField uname;
+    private javax.swing.JButton motor;
     // End of variables declaration//GEN-END:variables
 }
