@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Refardo
  */
 public class checkmobil extends javax.swing.JFrame {
-
+Boolean adstnk=null;
     /**
      * Creates new form check
      */
@@ -34,9 +34,9 @@ public class checkmobil extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         adastnk = new javax.swing.JRadioButton();
         tidakadastnk = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        checkout = new javax.swing.JButton();
         nopol = new javax.swing.JTextField();
         tiket = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,10 +59,20 @@ public class checkmobil extends javax.swing.JFrame {
 
         buttonGroup1.add(tidakadastnk);
         tidakadastnk.setText("Tidak Ada");
+        tidakadastnk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tidakadastnkActionPerformed(evt);
+            }
+        });
         getContentPane().add(tidakadastnk, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/Mobil.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, 100));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/Mobil.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 150, 100));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/quar.jpg"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
@@ -73,14 +83,20 @@ public class checkmobil extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 160, 60));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/check.jpg"))); // NOI18N
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        checkout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/s/check.jpg"))); // NOI18N
+        checkout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        checkout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                checkoutActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 150, 60));
+        getContentPane().add(checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 150, 60));
+
+        nopol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nopolActionPerformed(evt);
+            }
+        });
         getContentPane().add(nopol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 350, 50));
         getContentPane().add(tiket, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 350, 50));
 
@@ -95,20 +111,42 @@ public class checkmobil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adastnkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adastnkActionPerformed
-        // TODO add your handling code here:
+adstnk=true;
+        bill.setText("Tagihan parkir anda: 1000 rupiah");        // TODO add your handling code here:
     }//GEN-LAST:event_adastnkActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new quarantine().setVisible(true);
+        new quarantinemobil().setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void checkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutActionPerformed
 JOptionPane.showMessageDialog(null, "Telah Berhasil Checkout!", "InfoBox: ", JOptionPane.INFORMATION_MESSAGE);
-new menupilih().setVisible(true);
-this.dispose();
+nopol.setText("");
+        tiket.setText("");
+        bill.setText("");
+        if (adstnk==false) {
+          JOptionPane.showMessageDialog(null, "Maaf, data tidak lengkap, kendaraan masuk karantina", "InfoBox: ", JOptionPane.INFORMATION_MESSAGE);
+          this.setVisible(false);
+          new quarantinemobil().setVisible(true);
+        }
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_checkoutActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+new menupilih().setVisible(true);
+this.dispose();        // TODO add reyour handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nopolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nopolActionPerformed
+
+    private void tidakadastnkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidakadastnkActionPerformed
+adstnk=false;
+bill.setText("STNK tidak ada");
+// TODO add your handling code here:
+    }//GEN-LAST:event_tidakadastnkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,9 +189,9 @@ this.dispose();
     private javax.swing.JLabel backg;
     private javax.swing.JTextPane bill;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton checkout;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nopol;
     private javax.swing.JRadioButton tidakadastnk;
